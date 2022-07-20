@@ -11,3 +11,26 @@ def decode_char(char)
   morse_code.key(char)
 end
 # puts decode_char('-..')
+
+def decode_word(char)
+  word = ''
+
+  char.split.each do |c|
+    word += decode_char(c).to_s
+  end
+
+  word
+end
+# puts decode_word("-- ....")
+
+def decode(str)
+  decoded_msg = ''
+
+  str.split('  ').each do |word|
+    decoded_msg += "#{decode_word(word)} "
+  end
+  
+  decoded_msg.upcase
+end
+
+puts decode('.-   -... --- -..-   ..-. ..- .-.. .-..   --- ..-.   .-. ..- -... .. . ...')
